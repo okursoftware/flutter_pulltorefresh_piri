@@ -68,18 +68,10 @@ class RefreshLocalizations {
 
   Map<String, RefreshString> values = {
     'en': EnRefreshString(),
-    'zh': ChRefreshString(),
     'fr': FrRefreshString(),
     'ru': RuRefreshString(),
-    'uk': UkRefreshString(),
-    'it': ItRefreshString(),
-    'ja': JpRefreshString(),
-    'de': DeRefreshString(),
-    'es': EsRefreshString(),
-    'nl': NlRefreshString(),
-    'sv': SvRefreshString(),
-    'pt': PtRefreshString(),
-    'ko': KrRefreshString(),
+    'ar': ArRefreshString(),
+    'tr': TrRefreshString(),
   };
 
   RefreshString? get currentLocalization {
@@ -90,7 +82,7 @@ class RefreshLocalizations {
   }
 
   static const RefreshLocalizationsDelegate delegate =
-      RefreshLocalizationsDelegate();
+  RefreshLocalizationsDelegate();
 
   static RefreshLocalizations? of(BuildContext context) {
     return Localizations.of(context, RefreshLocalizations);
@@ -105,18 +97,10 @@ class RefreshLocalizationsDelegate
   bool isSupported(Locale locale) {
     return [
       'en',
-      'zh',
       'fr',
       'ru',
-      'uk',
-      'ja',
-      'it',
-      'de',
-      'ko',
-      'pt',
-      'sv',
-      'nl',
-      'es'
+      'ar',
+      'tr'
     ].contains(locale.languageCode);
   }
 
@@ -166,42 +150,6 @@ abstract class RefreshString {
 
   /// no more data text
   String? noMoreText;
-}
-
-/// Chinese
-class ChRefreshString implements RefreshString {
-  @override
-  String? canLoadingText = "松手开始加载数据";
-
-  @override
-  String? canRefreshText = "松开开始刷新数据";
-
-  @override
-  String? canTwoLevelText = "释放手势,进入二楼";
-
-  @override
-  String? idleLoadingText = "上拉加载";
-
-  @override
-  String? idleRefreshText = "下拉刷新";
-
-  @override
-  String? loadFailedText = "加载失败";
-
-  @override
-  String? loadingText = "加载中…";
-
-  @override
-  String? noMoreText = "没有更多数据了";
-
-  @override
-  String? refreshCompleteText = "刷新成功";
-
-  @override
-  String? refreshFailedText = "刷新失败";
-
-  @override
-  String? refreshingText = "刷新中…";
 }
 
 /// English
@@ -312,326 +260,71 @@ class RuRefreshString implements RefreshString {
   String? refreshingText = "Обновление…";
 }
 
-// Ukrainian
-class UkRefreshString implements RefreshString {
+class ArRefreshString implements RefreshString {
   @override
-  String? canLoadingText = "Відпустіть, щоб завантажити більше";
+  String? canLoadingText = "اسحب لتحميل المزيد";
 
   @override
-  String? canRefreshText = "Відпустіть, щоб оновити";
+  String? canRefreshText = "اسحب للتحديث";
 
   @override
-  String? canTwoLevelText = "Відпустіть, щоб увійти на другий рівень";
+  String? canTwoLevelText = "حرر للدخول الى المستوى الثاني";
 
   @override
-  String? idleLoadingText = "Тягнути вгору, щоб завантажити більше";
+  String? idleLoadingText = "اسحب للأعلى لتحميل المزيد";
 
   @override
-  String? idleRefreshText = "Тягнути вниз, щоб оновити";
+  String? idleRefreshText = "اسحب للأسفل للتحديث";
 
   @override
-  String? loadFailedText = "Помилка завантаження";
+  String? loadFailedText = "فشل في التحميل";
 
   @override
-  String? loadingText = "Завантаження…";
+  String? loadingText = "تحميل…";
 
   @override
-  String? noMoreText = "Більше даних немає";
+  String? noMoreText = "لم يعد يوجد بيانات";
 
   @override
-  String? refreshCompleteText = "Оновлення завершено";
+  String? refreshCompleteText = "انتهى التحديث";
 
   @override
-  String? refreshFailedText = "Не вдалося оновити";
+  String? refreshFailedText = "فشل في التحديث";
 
   @override
-  String? refreshingText = "Оновлення…";
+  String? refreshingText = "جاري التحديث…";
 }
-
-/// Italian
-class ItRefreshString implements RefreshString {
-  @override
-  String? canLoadingText = "Rilascia per caricare altro";
-
-  @override
-  String? canRefreshText = "Rilascia per aggiornare";
-
-  @override
-  String? canTwoLevelText = "Rilascia per accedere a secondfloor";
-
-  @override
-  String? idleLoadingText = "Tira per caricare altro";
-
-  @override
-  String? idleRefreshText = "Tira giù per aggiornare";
-
-  @override
-  String? loadFailedText = "Caricamento fallito";
-
-  @override
-  String? loadingText = "Caricamento…";
-
-  @override
-  String? noMoreText = "Nessun altro elemento";
-
-  @override
-  String? refreshCompleteText = "Aggiornamento completato";
-
-  @override
-  String? refreshFailedText = "Aggiornamento fallito";
-
-  @override
-  String? refreshingText = "Aggiornamento…";
-}
-
-/// Japanese
-class JpRefreshString implements RefreshString {
-  @override
-  String? canLoadingText = "指を離して更に読み込む";
-
-  @override
-  String? canRefreshText = "指を離して更新";
-
-  @override
-  String? canTwoLevelText = "指を離して2段目を表示";
-
-  @override
-  String? idleLoadingText = "上方スワイプで更に読み込む";
-
-  @override
-  String? idleRefreshText = "下方スワイプでデータを更新";
-
-  @override
-  String? loadFailedText = "読み込みが失敗しました";
-
-  @override
-  String? loadingText = "読み込み中…";
-
-  @override
-  String? noMoreText = "データはありません";
-
-  @override
-  String? refreshCompleteText = "更新完了";
-
-  @override
-  String? refreshFailedText = "更新が失敗しました";
-
-  @override
-  String? refreshingText = "更新中…";
-}
-
-/// German
-class DeRefreshString implements RefreshString {
-  @override
-  String? canLoadingText = "Loslassen, um mehr zu laden";
-
-  @override
-  String? canRefreshText = "Zum Aktualisieren loslassen";
-
-  @override
-  String? canTwoLevelText = "Lassen Sie los, um den zweiten Stock zu betreten";
-
-  @override
-  String? idleLoadingText = "Hochziehen, mehr laden";
-
-  @override
-  String? idleRefreshText = "Ziehen für Aktualisierung";
-
-  @override
-  String? loadFailedText = "Laden ist fehlgeschlagen";
-
-  @override
-  String? loadingText = "Lade…";
-
-  @override
-  String? noMoreText = "Keine weitere Daten";
-
-  @override
-  String? refreshCompleteText = "Aktualisierung fertig";
-
-  @override
-  String? refreshFailedText = "Aktualisierung fehlgeschlagen";
-
-  @override
-  String? refreshingText = "Aktualisiere…";
-}
-
-/// Spanish
-class EsRefreshString implements RefreshString {
-  @override
-  String? canLoadingText = "Suelte para cargar más";
-
-  @override
-  String? canRefreshText = "Suelte para actualizar";
-
-  @override
-  String? canTwoLevelText = "Suelte para entrar al segundo nivel";
-
-  @override
-  String? idleLoadingText = "Tire hacia arriba para cargar más";
-
-  @override
-  String? idleRefreshText = "Tire hacia abajo para refrescar";
-
-  @override
-  String? loadFailedText = "Error de carga";
-
-  @override
-  String? loadingText = "Cargando…";
-
-  @override
-  String? noMoreText = "No hay más datos disponibles";
-
-  @override
-  String? refreshCompleteText = "Actualización completada";
-
-  @override
-  String? refreshFailedText = "Error al actualizar";
-
-  @override
-  String? refreshingText = "Actualizando…";
-}
-
-/// Dutch
-class NlRefreshString implements RefreshString {
-  @override
-  String? canLoadingText = "Laat los om meer te laden";
-
-  @override
-  String? canRefreshText = "Laat los om te vernieuwen";
-
-  @override
-  String? canTwoLevelText = "Laat los om naar tweede verdieping te gaan";
-
-  @override
-  String? idleLoadingText = "Trek omhoog om meer te laden";
-
-  @override
-  String? idleRefreshText = "Trek omlaag om te vernieuwen";
-
-  @override
-  String? loadFailedText = "Laden mislukt";
-
-  @override
-  String? loadingText = "Laden…";
-
-  @override
-  String? noMoreText = "Geen data meer";
-
-  @override
-  String? refreshCompleteText = "Vernieuwen voltooid";
-
-  @override
-  String? refreshFailedText = "Vernieuwen mislukt";
-
-  @override
-  String? refreshingText = "Vernieuwen…";
-}
-
-/// Swedish
-class SvRefreshString implements RefreshString {
-  @override
-  String? canLoadingText = "Släpp för att ladda mer";
-
-  @override
-  String? canRefreshText = "Släpp för att uppdatera";
-
-  @override
-  String? canTwoLevelText = "Släpp för att gå till andra våningen";
-
-  @override
-  String? idleLoadingText = "Dra upp för att ladda mer";
-
-  @override
-  String? idleRefreshText = "Dra ner för att uppdatera";
-
-  @override
-  String? loadFailedText = "Hämtningen misslyckades";
-
-  @override
-  String? loadingText = "Laddar…";
-
-  @override
-  String? noMoreText = "Ingen mer data";
-
-  @override
-  String? refreshCompleteText = "Uppdaterad";
-
-  @override
-  String? refreshFailedText = "Kunde inte uppdatera";
-
-  @override
-  String? refreshingText = "Uppdaterar…";
-}
-
-// Portuguese - Brazil
-class PtRefreshString implements RefreshString {
-  @override
-  String? canLoadingText = "Solte para carregar mais";
-
-  @override
-  String? canRefreshText = "Solte para atualizar";
-
-  @override
-  String? canTwoLevelText = "Solte para entrar no segundo andar";
-
-  @override
-  String? idleLoadingText = "Puxe para cima para carregar mais";
-
-  @override
-  String? idleRefreshText = "Puxe para baixo para atualizar";
-
-  @override
-  String? loadFailedText = "Falha ao carregar";
-
-  @override
-  String? loadingText = "Carregando…";
-
-  @override
-  String? noMoreText = "Não há mais dados";
-
-  @override
-  String? refreshCompleteText = "Atualização completada";
-
-  @override
-  String? refreshFailedText = "Falha ao atualizar";
-
-  @override
-  String? refreshingText = "Atualizando…";
-}
-
-/// Korean
-class KrRefreshString implements RefreshString {
+class TrRefreshString implements RefreshString {
   @override
-  String? canLoadingText = "당겨서 불러오기";
+  String? canLoadingText = "Daha fazla yüklemek için bırakın";
 
   @override
-  String? canRefreshText = "당겨서 새로 고침";
+  String? canRefreshText = "Yenilemek için bırakın";
 
   @override
-  String? canTwoLevelText = "두 번째 레벨로 이동";
+  String? canTwoLevelText = "İkinci kata girmek için bırakın";
 
   @override
-  String? idleLoadingText = "위로 당겨서 불러오기";
+  String? idleLoadingText = "Yukarı Çek Daha Fazla Yükle";
 
   @override
-  String? idleRefreshText = "아래로 당겨서 새로 고침";
+  String? idleRefreshText = "Yenilemeyi aşağı çekin";
 
   @override
-  String? loadFailedText = "로딩에 실패했습니다.";
+  String? loadFailedText = "Yükleme Başarısız";
 
   @override
-  String? loadingText = "로딩 중…";
+  String? loadingText = "Yükleniyor...";
 
   @override
-  String? noMoreText = "데이터가 더 이상 없습니다.";
+  String? noMoreText = "Daha fazla veri yok";
 
   @override
-  String? refreshCompleteText = "새로 고침 완료";
+  String? refreshCompleteText = "Yenileme tamamlandı";
 
   @override
-  String? refreshFailedText = "새로 고침에 실패했습니다.";
+  String? refreshFailedText = "Yenileme başarısız oldu";
 
   @override
-  String? refreshingText = "새로 고침 중…";
+  String? refreshingText = "Yenileniyor...";
 }
