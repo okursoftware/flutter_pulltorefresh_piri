@@ -72,6 +72,7 @@ class RefreshLocalizations {
     'ru': RuRefreshString(),
     'ar': ArRefreshString(),
     'tr': TrRefreshString(),
+    'ur': UrRefreshString(),
   };
 
   RefreshString? get currentLocalization {
@@ -100,7 +101,8 @@ class RefreshLocalizationsDelegate
       'fr',
       'ru',
       'ar',
-      'tr'
+      'tr',
+      'ur',
     ].contains(locale.languageCode);
   }
 
@@ -327,4 +329,39 @@ class TrRefreshString implements RefreshString {
 
   @override
   String? refreshingText = "Yenileniyor...";
+}
+
+class UrRefreshString implements RefreshString {
+  @override
+  String? canLoadingText = "مزید اپ لوڈ کرنے کے لیے چھوڑ دیں۔";
+
+  @override
+  String? canRefreshText = "تازہ دم ہونے کے لیے چھوڑ دیں۔";
+
+  @override
+  String? canTwoLevelText = "دوسری منزل میں داخل ہونے کے لیے نکلیں۔";
+
+  @override
+  String? idleLoadingText = "پل اپ لوڈ مزید";
+
+  @override
+  String? idleRefreshText = "ریفریش نیچے کھینچیں۔";
+
+  @override
+  String? loadFailedText = "تنصیب ناکام ہو گئی۔";
+
+  @override
+  String? loadingText = "لوڈ ہو رہا ہے۔";
+
+  @override
+  String? noMoreText = "مزید ڈیٹا نہیں ہے۔";
+
+  @override
+  String? refreshCompleteText = "تزئین و آرائش مکمل";
+
+  @override
+  String? refreshFailedText = "ریفریش ناکام ہو گیا۔";
+
+  @override
+  String? refreshingText = "تجدید کرنا";
 }
